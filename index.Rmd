@@ -84,3 +84,5 @@ figura1=layout(figura1,
 # Se genera la visualizacóon de la gráfica:
 figura1
 ```
+
+Fin de documento.
