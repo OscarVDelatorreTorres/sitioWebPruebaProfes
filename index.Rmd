@@ -16,6 +16,8 @@ library(DT)
 setToken("de1f263dfc7235e12c07495c1c62772f0b82287a756739168064faee6e176463")
 ```
 
+![](umsnh100a.jpg)
+
 # Introducción
 
 En esta página web se muestra el desmepeño histórico de las remuneraciones reales promedio en los sectores industrial y comercial. El objetivo es compararar su desempeño contra el comportamiento del INPC o inflación general.
