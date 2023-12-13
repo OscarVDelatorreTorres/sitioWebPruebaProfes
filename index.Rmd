@@ -86,3 +86,5 @@ figura1
 ```
 
 Fin de documento.
+
+Saludos.
