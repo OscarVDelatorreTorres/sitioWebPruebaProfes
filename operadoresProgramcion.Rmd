@@ -1,0 +1,93 @@
+---
+title: "Operadores para programación"
+author: "Dr. Oscar V. De la Torre Torres"
+date: "2023-12-14"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Operador "if-else"
+
+El operador "if" y su complemente "else" sirven para que la computadora realice una serie de instrucciones si se cumple una condición o regla en el condicional "if". Cuando no se cumple ("else") podemos decirle que haga otra serie diferente de instrucciones o simplemente si no se cumple la condición, que haga nada.
+
+Veamos un ejemplo Vamos a crear un objeto llamado "notaSemestre". El mismo va a contener una calificación del 0 al 10. Y queremos que R imprima un mensaje de texto de "Felicidades, está aprobad@" si la calificación es mayor a 5 o que implida "Está reprobad@" en caso contrario:
+
+```{r ifElse}
+# Creamos el objeto "notaSemestre"
+notaSemestre=10
+
+# Creamos el condicional
+
+if (notaSemestre>5){
+  print("Felicidades, está aprobad@!!!")
+} else {
+  print("Está reprobad@!!!")
+}
+
+```
+
+Ahora podemos, si queremos hacer más completo los condicionlaes con condicionales "anidados". por ejemplo, si la calificaci{on es mayor a 8, que aparezca un mensaje diciendo "Excelente trabajo, Usted aprobó!!!" y que aparezca la leyenda original de "Felicidades, está aprobad@!!!" si es menor o igual a 8. Esto, siempre y cuando se cumpla la condición de que la calificación es mayor a 5:
+
+```{r ifElse2}
+# Creamos el objeto "notaSemestre"
+notaSemestre=5
+
+# Creamos el condicional
+
+if (notaSemestre>5){
+  # Condicional para poner un mensaje si la calificación es mayor a 8:
+  if (notaSemestre>8){
+    print("Excelente trabajo, Usted aprobó!!!")  
+  } else {
+    print("Felicidades, está aprobad@!!!")
+  }
+  
+} else {
+  print("Está reprobad@!!!")
+}
+
+```
+
+# El operador "for"
+
+El operador "for" sirve para, definiendo u número finito de veces (N), se repitan "N" veces una serie de instrucciones o cálculos. Veamos un ejemplo simple "queremos multiplicar por "N" el valor de 10.
+
+El oeprador for debe utilizr un objeto que sea el "contador" de las repeticiones. En el ejemplo lo llamaremos "contador" pudiendo se cualquier otro nombre como "a", "n" "repeticion", o el que guste. Optamos por "contador":
+```{r for1}
+# Creo el objeto N:
+N=15
+#operador for:
+for (contador in 1:N){
+  valorY=10*contador
+  print(valorY)
+}
+```
+
+# Insertando ecuaciones en Rmarkdown
+
+Las ecuaciones se pueden insertar de 2 maneras:
+
+1. Ecuación en el texto (inline) que es poner una ecuación o expresión matemática en texto como el de este párrafo. Para ello se utiliza el signo de pesos para abrir y cerrar la edición de dicha ecuación. En este párrafo se presenta la ecuación de la recta $y=\alpha+\beta x$.
+2. Ecuaciones "flotantes" o independientes a un párrafo. Por ejemplo la ecuación de una fución cuadrática como la de abajo. Para esto se insertan abriendo 2 pares de signos de pesos:
+
+$$y=\alpha x^2+\beta x+c$$
+
+# Aproximando el número $e$ con operadores "for"
+
+El número $e$ es el límite cuando $N$ tiende a $\infty$ de un valof futuro de una inversión de un peso, invertida a una tasa anualizada del 100\%, en $N$ periodos de recomposición al año:
+
+$$e\approx\lim\limits_{n \to \infty} VF=VA\cdot(1+\frac{100\%}{N})^N$$
+```{r numeroe}
+# Creo el objeto N:
+N=1000
+#operador for:
+for (contador in 1:N){
+  VF=1*(1+(1/contador))^contador
+  print(VF)
+}
+```
+
