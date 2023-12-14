@@ -80,6 +80,7 @@ $$y=\alpha x^2+\beta x+c$$
 
 El número $e$ es el límite cuando $N$ tiende a $\infty$ de un valof futuro de una inversión de un peso, invertida a una tasa anualizada del 100\%, en $N$ periodos de recomposición al año:
 
+
 $$e\approx\lim\limits_{n \to \infty} VF=VA\cdot(1+\frac{100\%}{N})^N$$
 ```{r numeroe}
 # Creo el objeto N:
