@@ -3,8 +3,8 @@ title: "Página web de prueba (Inicio)"
 author: "Dr. Oscar V. De la Torre-Torres"
 date: "`r Sys.Date()`"
 output:
-  word_document: default
   html_document: default
+  word_document: default
   pdf_document: default
 always_allow_html: true  
 ---
@@ -19,7 +19,7 @@ library(DT)
 library(flextable)
 
 # Cargo mis funciones personalizadas:
-source("resumenEstadistico.R")
+source("https://raw.githubusercontent.com/OscarVDelatorreTorres/sitioWebPruebaProfes/main/resumenEstadistico.R")
 # Configuro mi token de Banxico:
 setToken("de1f263dfc7235e12c07495c1c62772f0b82287a756739168064faee6e176463")
 
