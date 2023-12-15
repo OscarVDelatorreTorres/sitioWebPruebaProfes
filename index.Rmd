@@ -2,7 +2,11 @@
 title: "Página web de prueba (Inicio)"
 author: "Dr. Oscar V. De la Torre-Torres"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+always_allow_html: true  
 ---
 
 ```{r setup, include=FALSE}
@@ -12,8 +16,14 @@ library(openxlsx)
 library(siebanxicor)
 library(plotly)
 library(DT)
+library(flextable)
+
+# Cargo mis funciones personalizadas:
+source("resumenEstadistico.R")
 # Configuro mi token de Banxico:
 setToken("de1f263dfc7235e12c07495c1c62772f0b82287a756739168064faee6e176463")
+
+compilar="Word"
 ```
 
 ![](umsnh100a.jpg)
@@ -56,7 +66,17 @@ tablaDatos$INPC=(tablaDatos$INPC/tablaDatos$INPC[1])*100
 
 # Imprimo el resultado:
 
-datatable(tablaDatos)
+switch(compilar,
+       "HTML"={
+         datatable(tablaDatos)
+         save_as_docx("MitablaDatos"=tablaDatos,path="MitablaDatos.docx")         
+       },
+       {
+         flextable(tablaDatos)
+         save_as_docx("MitablaDatos"=tablaDatos,path="MitablaDatos.docx")
+       }
+       )
+
 ```
 
 En la siguiente figura se expone el comportamiento histórico de los datos de la tabla anterior.
@@ -87,6 +107,10 @@ figura1=layout(figura1,
 figura1
 ```
 
-Fin de documento.
+En la siguiente tabla se presenta un resumen estadístico:
 
-Saludos.
+```{r resumenEstadistico}
+tablaResumen=resumenEstadistico(tablaDatos[,2:4])
+flextable(tablaResumen)
+```
+

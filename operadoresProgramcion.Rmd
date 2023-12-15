@@ -78,7 +78,7 @@ $$y=\alpha x^2+\beta x+c$$
 
 # Aproximando el número $e$ con operadores "for"
 
-El número $e$ es el límite cuando $N$ tiende a $\infty$ de un valof futuro de una inversión de un peso, invertida a una tasa anualizada del 100\%, en $N$ periodos de recomposición al año:
+El número $e$ es el límite cuando $N$ tiende a $\infty$ de un valor futuro de una inversión de un peso, invertida a una tasa anualizada del 100\%, en $N$ periodos de recomposición al año:
 
 
 $$e\approx\lim\limits_{n \to \infty} VF=VA\cdot(1+\frac{100\%}{N})^N$$
@@ -87,8 +87,38 @@ $$e\approx\lim\limits_{n \to \infty} VF=VA\cdot(1+\frac{100\%}{N})^N$$
 N=1000
 #operador for:
 for (contador in 1:N){
+  # Cálculo del valor futuro:
   VF=1*(1+(1/contador))^contador
   print(VF)
 }
 ```
+
+# Operador switch
+
+El operador swicth es similar al if-else, con la diferencia de que if-else sirve par condicionales numéricos o lógicos. Switch sirve cuando se deben realizar ciertas actividades, dada una **cadena de texto**:
+
+```{r switch}
+desUMSNH="FisMat"
+
+switch(desUMSNH,
+  "FCCA"={
+    numero=10*10
+    print(paste0("Usted está en buena Facultad. Su calificación es de ",numero))
+  },
+  "FisMat"={
+    numero=10*1
+    print(paste0("Usted está del otro lado del mundo (CU). Su calificación es de ",numero))
+  },
+  "Arquitectura"={
+    numero=10*5
+    print(paste0("Usted está a la mitad de CU. Su calificación es de ",numero))    
+  },
+  {
+    numero=10*0
+    print(paste0("No se donde se encuentra Usted. Su calificación es de ",numero))    
+  }
+)
+
+```
+
 
